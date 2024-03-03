@@ -22,6 +22,7 @@
                     </li>
                 @endforeach
             </ul>
+            <a href="{{ route('project.edit', $project->id) }}">Modifica</a>
         </li>
         @endforeach
     </ul>

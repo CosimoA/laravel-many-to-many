@@ -30,10 +30,20 @@ Route::get('/projects/create', [ProjectController :: class, 'create'])
 Route::post('/projects', [ProjectController::class, 'store'])
     ->name('project.store');
 
+Route::get('/projects/{id}/edit', [ProjectController::class, 'edit'])
+    ->name('project.edit');
+
+Route::put('/projects/{id}', [ProjectController::class, 'update'])
+    ->name('project.update');
 
 Route::get('/types', [TypeController :: class, 'index'])
     -> name('type.index');
 
+
+
+
+
+    
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
