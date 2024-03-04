@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Type;
 use App\Models\Technology;
-
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -33,8 +33,17 @@ class ProjectController extends Controller
         $project->description = $data['description'];
     
         $project->type()->associate($type);
+
+        $img = $data['image'];
+        $img_path = Storage::disk('public')
+            ->put('images', $img);
+
+        $project->image = $img_path;
+
+
         $project->save();
         $project->technologies()->attach($data['technology_id']);
+
     
         return redirect()->route('project.index');
     }

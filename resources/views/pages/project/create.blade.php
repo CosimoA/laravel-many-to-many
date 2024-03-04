@@ -6,7 +6,7 @@
 
 @section('content')
     <h1>Nuovo Progetto</h1>
-    <form action="{{ route('project.store') }}" method="POST">
+    <form action="{{ route('project.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <label for="name">Nome Progetto:</label>
@@ -38,7 +38,10 @@
                 </label>
             </div>
         @endforeach
-        <br>        
+        <br>
+        <label for="image">Image</label>
+        <input type="file" name="image" id="image" accept="image/*">
+        <br>
         <button type="submit">Crea Progetto</button>
     </form>
 @endsection

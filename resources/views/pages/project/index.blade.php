@@ -22,6 +22,10 @@
                     </li>
                 @endforeach
             </ul>
+            <div>
+            <img src="{{ asset('storage/' . $project->image) }}" alt="Project Image" style="width: 300px">
+            </div>
+
             <a href="{{ route('project.edit', $project->id) }}">Modifica</a>
         </li>
         @endforeach

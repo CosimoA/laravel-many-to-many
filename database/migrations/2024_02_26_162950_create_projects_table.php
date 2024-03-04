@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('name');
             $table->text('description') -> nullable();
-
+            $table->string('image_URL')->nullable();
 
 
 
